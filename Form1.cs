@@ -133,16 +133,11 @@ namespace ModListTool
                     foreach (string item in removedModList)
                     {
                         _list += ("- " + item + "\n");
+                        listBox1.Items.Remove(item);
                     }
 
                     MessageBox.Show($"{removedModList.Count()} mods is missing\n\nThis mods has been removed from the list\n{_list}", "Mod list mismatch", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-                foreach (var item in removedModList)
-                {
-                    listBox1.Items.Remove(item);
-                }
-
 
                 listBox2.Items.AddRange(diffList.ToArray());
                 UpdateCounters();
